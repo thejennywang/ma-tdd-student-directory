@@ -1,55 +1,20 @@
-def print_header
-	puts 'Welcome to Student Directory of Makers Academy'
-end
-
-def print_menu
-    puts "------ ~~ MAIN MENU ~~ ------"
-    puts "1. Add students"
-    puts "2. Show all the students"
-    puts "3. Show all the students that start with an 'a'"
-    puts "4. Show the students with a maximum of 12 caracters"
-    puts "5. Show the student sorted by cohort"
-    puts "6. Save the data into a file"
-    puts "7. Load the students"
-    puts "8. Try Load the students"
-    puts "9. EXIT the awesome program"
-    puts "10. Show the source code"
-    puts "Type here your number"
-end
+# def print_header
+#     puts "Student Directory\n----------------------\n"
+# end
 
 def students
-    @students = [{name: name, cohort: cohort}]
+    @students ||= []
 end
 
-def get_user_input(input = $stdin)
-    input.gets
+def create_student(name, cohort)
+    {name: name, cohort: cohort.to_sym}
 end
 
-=begin
-def case_selection
-case @selection
-when "1"
-    get_user_input
-when "2"
-    display_student
-when "9" 
-    exit
-
-end
-=end
-
-
-def display_student(student)
-    # input = $STDIN
-    puts format_student(student)
-end
-
-def format_student(student)
-    "#{student[:name]} #{student[:cohort]}"
+def add_student(student)
+    students << student
 end
 
 
-
-def print_footer
-    puts "Now we have #{students.length} students"
-end
+# def counter_footer
+#     puts "Overall, we have #{students.length} great students"
+# end
